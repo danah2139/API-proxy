@@ -9,7 +9,6 @@ requests = "*"
 uvicorn = "*"
 slowapi = "*"
 fastapi-cache = "*"
-fastapi-cache2 = "*"
 
 [dev-packages]
 
