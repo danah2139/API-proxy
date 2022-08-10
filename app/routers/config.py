@@ -11,7 +11,7 @@ def memory_cache():
     """
     memory cache instance
     
-        returns: BaseCacheBackend : memory cache instance
+    returns: BaseCacheBackend : memory cache instance
     """    
     return caches.get(CACHE_KEY)
 
@@ -19,8 +19,8 @@ async def set_in_cache_get_request(url: str, cache: InMemoryCacheBackend) -> Non
     """
     create get api requset and set the response in memory cache
 
-        :param url (str): url from client 
-        :param cache (InMemoryCacheBackend): memory cache
+    :param url (str): url from client 
+    :param cache (InMemoryCacheBackend): memory cache
     """ 
     res = requests.get(url)
     await cache.set(url, res.json())
