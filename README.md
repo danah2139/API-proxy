@@ -18,6 +18,8 @@ You need to download pipenv in order to create virtualenv and install all the pa
 or download from the requirements.txt file
 <br/>
  * `python server.py`
+<br/>
 The proxy run in [http://localhost:8000]
+<br/>
 In order to see the REST API documentation run: [http://localhost:8000/docs]
 
