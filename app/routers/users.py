@@ -5,7 +5,6 @@ from .config import API_BASEURL, set_in_cache_get_request, memory_cache
 
 
 router = APIRouter(prefix="/api/users",)
-
     
 @router.get("/", tags=["users"])
 async def read_users(request: Request, response: Response, background_tasks: BackgroundTasks, page: int = 0, delay: int = 0, 
@@ -13,7 +12,7 @@ async def read_users(request: Request, response: Response, background_tasks: Bac
     url = f'{API_BASEURL}{router.prefix}?delay={delay}&page={page}'
     in_cache = await cache.get(url)
     if not in_cache:
-        background_tasks.add_task(set_in_cache_get_request, url)
+        background_tasks.add_task(set_in_cache_get_request, url,cache)
     return {'response': in_cache or 'panding'}
 
 
