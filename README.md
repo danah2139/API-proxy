@@ -13,9 +13,9 @@ The proxy server would send a response to the client (same response as the remot
  The proxy uses caching and return valid responses from the past 10 minutes.
 
 
-## RUN THE PROXY_SERVER 
+## RUN THE PROXY SERVER 
 You need to download pipenv in order to create virtualenv and install all the packages from pipfile
-or download from the requirements.txt file
+or you can download from the requirements.txt file
 <br/>
  * `python server.py`
 <br/>
