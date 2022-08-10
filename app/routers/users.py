@@ -22,7 +22,7 @@ async def read_user(request: Request, response: Response, background_tasks: Back
     url = f'{API_BASEURL}{router.prefix}/{user_id}?delay={delay}&page={page}'
     in_cache = await cache.get(url)
     if not in_cache:
-        background_tasks.add_task(set_in_cache_get_request, url)
+        background_tasks.add_task(set_in_cache_get_request, url, cache)
     return {'response': in_cache or 'panding'}
 
 

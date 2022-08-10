@@ -16,7 +16,7 @@ async def read_unknowns(request: Request, response: Response, background_tasks: 
     url = f'{API_BASEURL}{router.prefix}?delay={delay}&page={page}'
     in_cache = await cache.get(url)
     if not in_cache:
-        background_tasks.add_task(set_in_cache_get_request, url)
+        background_tasks.add_task(set_in_cache_get_request, url, cache)
     return {'response': in_cache or 'panding'}
 
 
@@ -27,5 +27,5 @@ async def read_unknown(request: Request, response: Response, background_tasks: B
     url = f'{API_BASEURL}/{user_id}{router.prefix}?delay={delay}&page={page}'
     in_cache=await cache.get(url)
     if not in_cache:
-        background_tasks.add_task(set_in_cache_get_request, url)
+        background_tasks.add_task(set_in_cache_get_request, url, cache)
     return {'response': in_cache or 'panding'}
