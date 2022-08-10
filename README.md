@@ -8,7 +8,6 @@ API REMOTE SERVER = 'https://reqres.in/'
 The proxy server would send a response to the client (same response as the remote server sent) while limiting the requests rate:
 <br/>
 * A maximum of 10 requests per minute.
-<br/>
 * A maximum of 1,000 requests per day.
 
 
