@@ -21,9 +21,11 @@ app.include_router(register.router)
 app.include_router(login.router)
 
 
-
-
 @app.on_event("startup")
 async def startup():
     mc = InMemoryCacheBackend()
     caches.set(CACHE_KEY, mc)
+    
+@app.get("/")
+async def test():
+    return {"msg": "server starting"}
