@@ -10,4 +10,14 @@ The proxy server would send a response to the client (same response as the remot
 * A maximum of 10 requests per minute.
 * A maximum of 1,000 requests per day.
 
+ The proxy uses caching and return valid responses from the past 10 minutes.
+
+
+## RUN THE PROXY_SERVER 
+You need to download pipenv in order to create virtualenv and install all the packages from pipfile
+or download from the requirements.txt file
+<br/>
+ * `python server.py`
+The proxy run in [http://localhost:8000]
+In order to see the REST API documentation run: [http://localhost:8000/docs]
 
