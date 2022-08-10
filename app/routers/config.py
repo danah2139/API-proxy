@@ -1,3 +1,4 @@
+from fastapi import BackgroundTasks
 from fastapi_cache import caches
 from fastapi_cache.backends.memory import InMemoryCacheBackend, CACHE_KEY
 import requests
@@ -14,8 +15,10 @@ async def set_in_cache_get_request(url: str, cache: InMemoryCacheBackend, messag
     await cache.set(url, res.json())
     await cache.expire(url, 1000)
     
-# async def check_if_url_in_cache(url):
-#     in_cache = await cache.get(url)
-#     if not in_cache:
-#         background_tasks.add_task(set_in_cache_get_request url)    
+
+async def get_response_from_cache(url:str, cache: InMemoryCacheBackend, background_tasks: BackgroundTasks):
+    in_cache = await cache.get(url)
+    if not in_cache:
+        background_tasks.add_task(set_in_cache_get_request ,url,cache)    
+    return {'response': in_cache or 'pending'}
     
