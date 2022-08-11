@@ -29,13 +29,13 @@ async def set_in_cache_get_request(url: str, cache: InMemoryCacheBackend) -> Non
 
 async def get_response_from_cache(url:str, cache: InMemoryCacheBackend, background_tasks: BackgroundTasks):
     """
-        get and return response from cache if exists 
-        else than create get request and set in memory cache
+    get and return response from cache if exists 
+    else than create get request and set in memory cache
 
-        :param url (str): _description_
-        :param cache (InMemoryCacheBackend): memory cache
-        :param background_tasks (BackgroundTasks): background tasks for running operations after returning a response
-        returns:dic[str]: response from cache or 'pending'
+    :param url (str): url from client
+    :param cache (InMemoryCacheBackend): memory cache
+    :param background_tasks (BackgroundTasks): background tasks for running operations after returning a response
+    returns:dic[str]: response from cache or 'pending'
     """    
     in_cache = await cache.get(url)
     if not in_cache:

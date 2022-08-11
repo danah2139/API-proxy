@@ -9,11 +9,11 @@ router = APIRouter(prefix="/api/register",)
 @router.post("/", tags=["register"])
 async def register(request: Request, response: Response):
     """
-        wrapper for reqres register functionality
+    wrapper for reqres register functionality
 
-        :param request (Request): default for fastapi
-        :param response (Response): default for fastapi
-        :returns: dic[str]: response from post request to reqres remote server
+    - **request (Request)**: required for fastapi
+    - **response (Response)**: required for fastapi
+    - **returns: dic[str]**: response from post request to reqres remote server
     """
     headers = {"Content-Type": "application/json; charset=utf-8"}
     body = await request.body()
